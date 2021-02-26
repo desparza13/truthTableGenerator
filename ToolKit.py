@@ -8,25 +8,16 @@ Created on Thu Feb 11 20:11:02 2021
 
 #Variables
 import math 
+import setUp.py as su
+import variables as v
+ 
+
+proposition=input(">>")
 
 
-proposicion=input(">>")
 
-    
-def seekVariables(proposicion):
-    variables = []
-    for i in proposicion:
-        if (i!='V' and i!='v')and((i>='a' and i<= 'z') or (i>='A' and i<='Z')):
-            if (variables.count(i)<1):
-                variables.append(i)
-    variables.sort()
-    return variables
 
-def printVariables(variables):
-    for i in [True, False]:
-        break
-        
-        
-        
-    
-print(seekVariables(proposicion))
+
+
+
+ 
