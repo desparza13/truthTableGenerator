@@ -93,9 +93,8 @@ def saveValues(variables):
     for i in range(0,len(variableValues)-1,1): #Guarda todos los valores de la variable para llenar la tabla
         multiply=int((2**len(variables))/(proportions[i]*2))
         varFinal.append(variableValues[i]*multiply)  #Aquí te queda algo del tipo (p,q)={p=True,True,False,False} {q=True,False,True,False}
-        
+        v.values[v.variables[i]]=variableValues[i]*multiply
             
-    return varFinal
     
 #----------------------------------------------------------------------
 
@@ -103,7 +102,6 @@ def saveNegatedValues(variables):
     variableValues = []
     values = []
     proportions = []
-    varFinal=[]
     multiply=1
     for i in range(0,len(variables),1): #Obtener las proporciones, es decir el valor de 2^n-1 de cada variable
         proportions.append(2**i)
@@ -114,15 +112,14 @@ def saveNegatedValues(variables):
         for j in range(0,proportions[i-1],1): #Agrega los False
             values.append(True)
         values=[]
-        variableValues.append(values) #Aquí te queda algo del tipo (p,q)={p=True,True,False,False} {q=True,False}
+        variableValues.append(values)#Aquí te queda algo del tipo (p,q)={p=True,True,False,False} {q=True,False}
 
 
     for i in range(0,len(variableValues)-1,1): #Guarda todos los valores de la variable para llenar la tabla
-        multiply=int((2**len(variables))/(proportions[i]*2))
-        varFinal.append(variableValues[i]*multiply)  #Aquí te queda algo del tipo (p,q)={p=True,True,False,False} {q=True,False,True,False}
-        
+        multiply=int((2**len(variables))/(proportions[i]*2))  #Aquí te queda algo del tipo (p,q)={p=True,True,False,False} {q=True,False,True,False}
+        v.negatedValues[v.variables[i]]=variableValues[i]*multiply
+
             
-    return varFinal
 
 #----------------------------------------------------------------------
 
@@ -139,9 +136,9 @@ def setUp():
 def trySetUp():
     print("Proposition",v.proposition)
     print("Variables",v.variables)
-    print("Variable values",v.varValues)
+    print("Variable values",v.values)
     print("Negated variables",v.negatedVariables)
-    print("Negated variables values",v.varNegatedValues)
+    print("Negated variables values",v.negatedValues)
     print("Expressions",v.expression)
 
 

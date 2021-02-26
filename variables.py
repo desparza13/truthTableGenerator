@@ -8,8 +8,10 @@ Created on Fri Feb 26 01:29:28 2021
 
 proposition = "(((pVq)^-r)^-p)"
 variables = []
-varValues = []
+values={}
 negatedVariables = []
-varNegatedValues = []
+negatedValues={}
 expressions = []
 
+
+negatedValues={}
