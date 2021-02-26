@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb 25 20:11:02 2021
+Created on Thu Feb 11 20:11:02 2021
 
-@author: danielaesparza
+@author: danielaesparza, jenniferhernandez
 """
 
 #Variables
