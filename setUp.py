@@ -9,7 +9,7 @@ Created on Fri Feb 26 01:29:08 2021
 import math 
 import variables as v
 
-proposition=input(">>")
+
 
 #------------------------------Funciones SetUp----------------------
 
@@ -58,10 +58,10 @@ def seekParenthesis(proposition): #Busca los parentesis de inicio y fin y regres
 
 #----------------------------------------------------------------------
             
-def getExpressions(proposition, openParanthesis, closeParenthesis): #Obtener las expresiones por separado según sus parentesis
+def getExpressions(proposition): #Obtener las expresiones por separado según sus parentesis
     expressions = []
     expression=""
-    
+    openParanthesis,closeParenthesis=seekParenthesis(proposition)
     for i in range(0,len(openParanthesis),1): #Por cada par de paréntesis
         for j in range(openParanthesis[i],closeParenthesis[i]+1,1): #Copiar la expresión desde donde abre hasta donde cierra el paréntesis
             expression=expression+proposition[j]
@@ -72,7 +72,7 @@ def getExpressions(proposition, openParanthesis, closeParenthesis): #Obtener las
     return expressions
 #----------------------------------------------------------------------
 
-def saveVariables(variables):
+def saveValues(variables):
     variableValues = []
     values = []
     proportions = []
@@ -99,7 +99,7 @@ def saveVariables(variables):
     
 #----------------------------------------------------------------------
 
-def saveVariablesNegatives(variables):
+def saveNegatedValues(variables):
     variableValues = []
     values = []
     proportions = []
@@ -126,18 +126,39 @@ def saveVariablesNegatives(variables):
 
 #----------------------------------------------------------------------
 
-    
+def setUp():
+    v.proposition=input(">>")
+    v.variables=(seekVariables(v.proposition))
+    v.varValues=(saveValues(v.variables))
+    v.negatedVariables=seekNegatedVariables(v.proposition)
+    v.varNegatedValues=saveNegatedValues(v.variables)
+    v.expression=getExpressions(v.proposition)
+
+#----------------------------------------------------------------------
+
+def trySetUp():
+    print("Proposition",v.proposition)
+    print("Variables",v.variables)
+    print("Variable values",v.varValues)
+    print("Negated variables",v.negatedVariables)
+    print("Negated variables values",v.varNegatedValues)
+    print("Expressions",v.expression)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
-        #(((pVq)^-r)^-p)
-        
-        
-variables=seekVariables(proposition)
-variablesNegadas=seekNegatedVariables(proposition)
-print("Variables: ",variables)
-print("Variables negadas",seekNegatedVariables(proposition))
-abrir, cerrar=seekParenthesis(proposition)
-print("Posiciones abrir paréntesis:",abrir)
-print("Posiciones cerrar paréntesis:",cerrar)
-print("Expresiones:",getExpressions(proposition, abrir, cerrar))
-print(saveVariables(variables))
-print(saveVariablesNegatives(variables))

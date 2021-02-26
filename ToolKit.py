@@ -8,13 +8,12 @@ Created on Thu Feb 11 20:11:02 2021
 
 #Variables
 import math 
-import setUp.py as su
+import setUp as su
 import variables as v
  
 
-proposition=input(">>")
-
-
+su.setUp()
+su.trySetUp()
 
 
 
