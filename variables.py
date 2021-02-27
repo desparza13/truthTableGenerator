@@ -11,7 +11,8 @@ variables = []
 values={}
 negatedVariables = []
 negatedValues={}
-expressions = []
+expression = []
+negatedPos = []
+expValues={}
+evaluatedExp=0
 
-
-negatedValues={}

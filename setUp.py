@@ -8,13 +8,14 @@ Created on Fri Feb 26 01:29:08 2021
 
 import math 
 import variables as v
+import logicalConector as log
 
 
 
 #------------------------------Funciones SetUp----------------------
 
 def seekVariables(proposition): #Buscar variables en la proposición y guardarlas en un arreglo
-    proposition.lower() #Convertir todo a minúsculas para una mejor interpretación
+    proposition=proposition.lower() #Convertir todo a minúsculas para una mejor interpretación
     variables = []
     
     for i in proposition: 
@@ -28,7 +29,7 @@ def seekVariables(proposition): #Buscar variables en la proposición y guardarla
 #----------------------------------------------------------------------
 
 def seekNegatedVariables(proposition): #Buscar las variables negadas en la proposición
-    proposition.lower() #Convertir todo a minúsculas para una mejor interpretación
+    proposition=proposition.lower() #Convertir todo a minúsculas para una mejor interpretación
     negatedVariables = []
     
     for i in range(0, len(proposition)-1, 1):
@@ -62,6 +63,8 @@ def getExpressions(proposition): #Obtener las expresiones por separado según su
     expressions = []
     expression=""
     openParanthesis,closeParenthesis=seekParenthesis(proposition)
+    print("Open",openParanthesis)
+    print("Close",closeParenthesis)
     for i in range(0,len(openParanthesis),1): #Por cada par de paréntesis
         for j in range(openParanthesis[i],closeParenthesis[i]+1,1): #Copiar la expresión desde donde abre hasta donde cierra el paréntesis
             expression=expression+proposition[j]
@@ -70,6 +73,21 @@ def getExpressions(proposition): #Obtener las expresiones por separado según su
     
     expressions.reverse() #Ordenarlo de menor a mayor para que se vea de manera progresiva en la tabla de verdad
     return expressions
+#----------------------------------------------------------------------
+def getNegatedExpressions(proposition):
+    negatedExpressions = []
+    notExpression = ""
+    openParanthesis,closeParenthesis=seekParenthesis(proposition)
+    negatedPos = []
+    for i in range(0, len(proposition)-1, 1):
+        if(proposition[i]=="~")or(proposition[i]=="-")or(proposition[i]=="¬"):#Buscar los símbolos de negación (tres opciones: -, ~, ¬)
+            if(proposition[i+1]=='('):
+                for j in range(0, len(openParanthesis),1):
+                    if i+1 == openParanthesis[j]:
+                        negatedPos.append(len(openParanthesis)-j-1)
+    return negatedPos
+                
+    
 #----------------------------------------------------------------------
 
 def saveValues(variables):
@@ -130,6 +148,8 @@ def setUp():
     v.negatedVariables=seekNegatedVariables(v.proposition)
     v.varNegatedValues=saveNegatedValues(v.variables)
     v.expression=getExpressions(v.proposition)
+    v.negatedPos=getNegatedExpressions(v.proposition)
+    
 
 #----------------------------------------------------------------------
 
@@ -140,6 +160,8 @@ def trySetUp():
     print("Negated variables",v.negatedVariables)
     print("Negated variables values",v.negatedValues)
     print("Expressions",v.expression)
+    print("Negated expressions",v.negatedPos)
+
 
 
 

@@ -10,12 +10,13 @@ Created on Thu Feb 11 20:11:02 2021
 import math 
 import setUp as su
 import variables as v
- 
+import logicalConector as log
 
 su.setUp()
 su.trySetUp()
 
-
+log.imprimirPrueba()
+log.saveAll()
 
 
 
