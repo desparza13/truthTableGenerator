@@ -63,8 +63,8 @@ def getExpressions(proposition): #Obtener las expresiones por separado según su
     expressions = []
     expression=""
     openParanthesis,closeParenthesis=seekParenthesis(proposition)
-    print("Open",openParanthesis)
-    print("Close",closeParenthesis)
+    # print("Open",openParanthesis)
+    # print("Close",closeParenthesis)
     for i in range(0,len(openParanthesis),1): #Por cada par de paréntesis
         for j in range(openParanthesis[i],closeParenthesis[i]+1,1): #Copiar la expresión desde donde abre hasta donde cierra el paréntesis
             expression=expression+proposition[j]

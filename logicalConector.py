@@ -67,7 +67,7 @@ def logicBiconditional(expression):
             exp.append(True)       
     v.expValues[expression]=exp
  #------------------------------------------------------------------------------------------------------------------------
-def operate(expression):
+def operate(expression): #
     conector=searchConector(expression)
     if(conector=="v"):
         logicOr(expression)

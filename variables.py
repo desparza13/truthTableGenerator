@@ -3,7 +3,7 @@
 """
 Created on Fri Feb 26 01:29:28 2021
 
-@author: danielaesparza
+@author: danielaesparza jenniferhernandez
 """
 
 proposition = "(((pVq)^-r)^-p)"

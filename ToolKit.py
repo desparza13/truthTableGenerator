@@ -11,12 +11,16 @@ import math
 import setUp as su
 import variables as v
 import logicalConector as log
+import printAndShow as show
 
 su.setUp()
-su.trySetUp()
+#su.trySetUp()
 
-log.imprimirPrueba()
-log.saveAll()
+log.evaluateFirst()
+#log.imprimirPrueba()
+show.printRevision()
+
+#log.saveAll()
 
 
 
